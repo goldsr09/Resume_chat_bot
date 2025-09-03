@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resume QA — Ryan Goldstein</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 820px; margin: 40px auto; padding: 0 16px; }
+    .card { border: 1px solid #e5e7eb; border-radius: 14px; padding: 18px; margin-top: 12px; box-shadow: 0 4px 10px rgba(0,0,0,.04); }
+    button { padding: 10px 16px; border-radius: 10px; border: 1px solid #111; cursor: pointer; }
+    textarea { width: 100%; min-height: 90px; padding: 12px; border-radius: 10px; border: 1px solid #cbd5e1; resize: vertical; }
+    pre { white-space: pre-wrap; }
+    .muted { color:#64748b; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Ask my resume</h1>
+  <p class="muted">Answers are grounded in my resume content only.</p>
+
+  <div class="card">
+    <textarea id="q" placeholder="e.g., What LLM/automation tools has Ryan used?"></textarea>
+    <div style="margin-top:10px;">
+      <button onclick="ask()">Ask</button>
+    </div>
+  </div>
+
+  <div id="out"></div>
+
+  <script>
+    async function ask(){
+      const q = document.getElementById('q').value.trim();
+      const out = document.getElementById('out');
+      if(!q){ out.innerHTML = '<div class="card">Please enter a question.</div>'; return; }
+      out.innerHTML = '<div class="card">Thinking…</div>';
+      try{
+        const res = await fetch('/ask', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({q})
+        });
+        const data = await res.json();
+        if(!res.ok){ out.innerHTML = '<div class="card">Error: '+(data.error||'unknown')+'</div>'; return; }
+        out.innerHTML = `
+          <div class="card"><h3>Answer</h3><pre>${data.answer}</pre></div>
+          <div class="card"><h4>Top context snippets</h4>
+            <ol>${data.context.map(c=>`<li><pre>${c}</pre></li>`).join('')}</ol>
+          </div>`;
+      } catch (e){
+        out.innerHTML = '<div class="card">Network error: '+e.message+'</div>';
+      }
+    }
+  </script>
+</body>
+</html>

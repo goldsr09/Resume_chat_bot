@@ -1,0 +1,50 @@
+"Ryan Goldstein
+New York, NY 10010
+(C) 516-510-3103 – ryan.goldstein3@gmail.com
+PROFESSIONAL EXPERIENCE
+Adjust, New York City, NY May 2022 – Current
+Technical Account Manager
+• Supported clients with their day-to-day technical questions and needs, collaborating cross-functionally with client’s
+marketing, user acquisition and engineering teams to provide both high-level and low-level support
+• Investigated discrepancies and technical issues leveraging PostgreSQL and logs pulled from command line interface
+• Led weekly training/check-in sessions with clients to ensure rich understanding of the Adjust suite, the evolving mobile
+attribution landscape and various partner integrations. Information gleaned got fed to product for iterative improvements
+• Troubleshot complex systems involving different stakeholders to ensure data was tracked and shared properly. This included
+software configurations and associated dependencies, the implementation and use of the adjust SDK, external and internal
+API issues and integrations between adjust and various partners
+• Created technical documentation around SDK functionality to disseminate across internal team information systems
+• Led comprehensive internal training sessions on advanced SDK functionalities, enhancing team expertise
+Spotify, New York City, NY April 2020 – May 2022
+Technical Account Manager
+• Provided audience targeting recommendations and technical specifications during pre-sale discussions, tailoring strategies to
+leverage Spotify's unique offerings within verticals. Proactively suggested mid-flight adjustments to hit client KPI’s
+• Identified and pitched upselling opportunities for premium inventory to client partners, resulting in increased revenue
+• Managed troubleshooting and optimization efforts across direct, podcast, PMP, and PG activations, generating over
+$1,000,000 in revenue through effective resolution of scaling issues and data matching challenges
+• Compiled and presented post-campaign wrap reports highlighting key areas of success while also providing
+recommendations for improved performance on future activations
+• Automated reporting processes across direct and programmatic deals, creating dashboards that provided sales teams and
+clients with clear insights into pacing and performance, and facilitating necessary optimizations.
+Sling TV, New York City, NY August 2018 – May 2020
+Ad Operations Specialist
+• Optimized campaigns using various levers in the ad decision platform, capturing upwards of $200,000 through inventory
+analysis, and implemented improved report structure to ensure campaign success
+• Trafficked and QA’ed all direct and programmatic deals. Ensured all VAST tags and pixels were production ready via
+testing using chrome dev tools. Troubleshot any campaign problems including 3rd party discrepancies across vendors
+• Automated four templated copy-and-paste Excel reports using VBA code, reducing time spent on daily error monitoring and
+prevention processes while also decreasing human error
+• Conceptualized and then led initiative to have bespoke ingestion of data via FTP of pixels trafficked against campaigns.
+Saved upwards of $1,000,000 by preventing downstream makegoods from incorrectly trafficked campaigns
+Quantified Media, New York City, NY May 2017 – July 2018
+Media Buyer & Analyst
+• Co-managed the trafficking a budget of $300,000 a month in advertising space through Facebook advertising platform
+• Analyzed and tested various media buying strategies using data-driven insights and A/B testing to consistently meet and
+exceed CPA targets, resulting in optimized ad spend and increased ROI
+• Generated and presented weekly reports leveraging Google Sheets, Excel, Facebook Insights, and the Supermetrics API,
+helping provide internal teams with actionable insights into top-performing creatives
+• Scoped a potential SaaS integration for condition based automated advertisement buying and scaling on Facebook
+EDUCATION
+Emory University, Atlanta, GA • Bachelor of Arts, Economics
+ADDITIONAL INFORMATION
+Class of 2013
+• Proficient in Python, SQL, CLI, RESTful API’s, Excel, Postman, Google Sheets, Scrum, Xcode, Salesforce, JIRA, GAM"
