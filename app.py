@@ -4,6 +4,9 @@ from flask import Flask, render_template, request, jsonify
 from openai import OpenAI
 import numpy as np
 import faiss
+from flask import request
+from agents import Agent, FileSearchTool, Runner, WebSearchTool
+
 
 load_dotenv()
 client = OpenAI()  # uses OPENAI_API_KEY from .env
@@ -64,5 +67,43 @@ def ask():
     ans = answer(q, ctx)
     return jsonify({"answer": ans, "context": ctx, "scores": scores})
 
+job_agent = Agent(
+    name="Assistant",
+    tools=[
+        WebSearchTool(),
+        # FileSearchTool(max_num_results=3, vector_store_ids=["VECTOR_STORE_ID"]),
+    ],
+)
+job_runner = Runner()
+
+@app.get("/jobs")
+def jobs_home():
+    return render_template("jobs.html")
+    
+import asyncio
+@app.post("/jobs/search")
+def jobs_search():
+    query = (request.form.get("query") or "").strip()
+    if not query:
+        return render_template("jobs.html",results = [])
+        
+    prompt = f"Find current job postings for: {query}. Return a short list with title, url, and snippet."
+
+    try:
+        loop = asyncio.get_event_loop()
+
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+
+    result = loop.run_until_complete(Runner.run(job_agent, prompt))
+    output = getattr(result, "final_output", str(result))
+
+    return render_template("jobs.html", results=[{"title": "Jobs", "url": "", "snippet": output}])
+        
+
+
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
+
+

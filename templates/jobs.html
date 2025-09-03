@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Job Finder</title>
+  <style>
+    body{font-family:system-ui,sans-serif;max-width:860px;margin:40px auto;padding:0 16px}
+    .card{border:1px solid #e5e7eb;border-radius:14px;padding:18px;margin-top:12px}
+    textarea,input,button{width:100%}
+    textarea{min-height:120px;padding:10px}
+    button{padding:10px;border-radius:10px;border:1px solid #111;width:auto}
+    pre{white-space:pre-wrap}
+  </style>
+</head>
+<body>
+  <h1>Find roles that match my resume</h1>
+  <div class="card">
+    <form method="post" action="/jobs/search">
+      <label>Search query (start simple, e.g., “technical account manager nyc”)</label>
+      <input name="query" placeholder="e.g., technical account manager remote">
+      <p style="margin:.5rem 0 0;font-size:.9rem;color:#64748b">
+        Tip: we’ll improve this to be auto-generated from your resume later.
+      </p>
+      <button type="submit" style="margin-top:10px">Search</button>
+    </form>
+  </div>
+
+  {% if results %}
+    <div class="card">
+      <h3>Raw results</h3>
+      <ol>
+        {% for r in results %}
+          <li>
+            <div><strong>{{ r.get("title","(no title)") }}</strong></div>
+            <div>{{ r.get("url","") }}</div>
+            <pre>{{ r.get("snippet","") }}</pre>
+          </li>
+        {% endfor %}
+      </ol>
+    </div>
+  {% endif %}
+</body>
+</html>
